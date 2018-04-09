@@ -1,0 +1,101 @@
+BootStrap: shub
+From: shub://onuryukselen/singularity
+
+%labels
+
+    AUTHOR Onur Yukselen <onur.yukselen@umassmed.edu>
+    Version v1.0
+
+%environment
+    PATH=$PATH:/tmp/piPipes/bin:/Software/brew/bin
+    export PATH
+
+%apprun R
+  exec R "$@"
+
+%apprun Rscript
+  exec Rscript "$@"
+
+%runscript
+  exec R "$@"  
+  
+%post
+
+############
+### piPipes
+############
+
+    git clone https://github.com/bowhan/piPipes.git /tmp/piPipes
+    cd /tmp/piPipes
+    ln -s $PWD/piPipes /usr/local/bin/piPipes
+    ln -s $PWD/piPipes_debug /usr/local/bin/piPipes_debug
+    
+#### 1. R
+  NPROCS=`awk '/^processor/ {s+=1}; END{print s}' /proc/cpuinfo`
+  cd /tmp
+  wget https://cran.rstudio.com/src/base/R-3/R-3.4.3.tar.gz
+  tar xvf R-3.4.3.tar.gz
+  cd /tmp/R-3.4.3
+  apt-get install -y libblas3 libblas-dev liblapack-dev liblapack3  
+  apt-get install -y libgmp10 libgmp-dev
+  apt-get install -y fort77 aptitude
+  aptitude install -y xorg-dev
+  aptitude install -y libreadline-dev
+  apt install -y   libpcre3-dev liblzma-dev  
+  apt-get update
+
+  ./configure --enable-R-static-lib --with-blas --with-lapack --enable-R-shlib=yes 
+  echo "Will use make with $NPROCS cores."
+  make -j${NPROCS}
+  make install
+
+  echo install.packages\(\"RColorBrewer\"\, repos\=\'https://cloud.r-project.org\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"ggplot2\"\, repos\=\'https://cloud.r-project.org\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"ggthemes\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"gplots\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"parallel\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"scales\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"reshape\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"gridExtra\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"gdata\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"RCircos\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
+  R --slave -e "source('https://bioconductor.org/biocLite.R'); biocLite()"
+  R --slave -e "source('https://bioconductor.org/biocLite.R'); biocLite('cummeRbund')"
+
+# 2. HTSeq-count
+pip install HTSeq
+which htseq-count
+
+# 3. MACS2
+pip install macs2
+which macs2
+
+# 4. Perl Module Statistics::Descriptive;
+cpan Statistics::Descriptive
+perl -MStatistics::Descriptive -e "print \"Installed.\\n\";"
+
+# 5. Install Gawk with Linuxbrew  
+locale-gen "en_US.UTF-8"
+dpkg-reconfigure locales
+export LANGUAGE="en_US.UTF-8"
+echo 'LANGUAGE="en_US.UTF-8"' >> /etc/default/locale
+echo 'LC_ALL="en_US.UTF-8"' >> /etc/default/locale
+chmod 777 /tmp
+chmod +t /tmp
+apt-get install -y apt-transport-https build-essential libsm6 libxrender1 libfontconfig1 ruby
+apt-get clean
+mkdir /Software 
+cd /Software
+chmod 777 /Software
+useradd -m singularity
+su -c 'cd /Software && git clone https://github.com/Linuxbrew/brew.git /Software/brew' singularity
+su -c '/Software/brew/bin/brew install gawk' singularity
+ln -s /Software/brew/bin/gawk /tmp/piPipes/bin/awk
+    
+    
+    
+    
+    
+    
+    
+    
