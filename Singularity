@@ -61,6 +61,7 @@ From: shub://onuryukselen/singularity
   echo install.packages\(\"gridExtra\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
   echo install.packages\(\"gdata\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
   echo install.packages\(\"RCircos\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
+  yes | apt-get install libmariadb-client-lgpl-dev
   R --slave -e "source('https://bioconductor.org/biocLite.R'); biocLite()"
   R --slave -e "source('https://bioconductor.org/biocLite.R'); biocLite('cummeRbund')"
 
