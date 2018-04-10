@@ -53,6 +53,7 @@ From: shub://onuryukselen/singularity
 
   echo install.packages\(\"RColorBrewer\"\, repos\=\'https://cloud.r-project.org\'\, Ncpus\=${NPROCS}\) | R --slave
   echo install.packages\(\"ggplot2\"\, repos\=\'https://cloud.r-project.org\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"grid\"\, repos\=\'https://cloud.r-project.org\'\, Ncpus\=${NPROCS}\) | R --slave
   echo install.packages\(\"ggthemes\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
   echo install.packages\(\"gplots\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
   echo install.packages\(\"parallel\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
@@ -60,11 +61,15 @@ From: shub://onuryukselen/singularity
   echo install.packages\(\"reshape\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
   echo install.packages\(\"gridExtra\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
   echo install.packages\(\"gdata\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"labeling\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
   echo install.packages\(\"RCircos\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
   echo install.packages\(\"reshape2\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
   yes | apt-get install libmariadb-client-lgpl-dev
   R --slave -e "source('https://bioconductor.org/biocLite.R'); biocLite()"
   R --slave -e "source('https://bioconductor.org/biocLite.R'); biocLite('cummeRbund')"
+  
+  
+  
 
 # 2. HTSeq-count
 pip install HTSeq
