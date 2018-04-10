@@ -7,7 +7,7 @@ From: shub://onuryukselen/singularity
     Version v1.0
 
 %environment
-    PATH=$PATH:/tmp/piPipes/bin:/Software/brew/bin
+    PATH=$PATH:/Software/piPipes/bin:/Software/brew/bin
     export PATH
 
 %apprun R
@@ -24,9 +24,11 @@ From: shub://onuryukselen/singularity
 ############
 ### piPipes
 ############
-
-    git clone https://github.com/bowhan/piPipes.git /tmp/piPipes
-    cd /tmp/piPipes
+    mkdir -p /Software 
+    cd /Software
+    chmod 777 /Software
+    git clone https://github.com/bowhan/piPipes.git /Software/piPipes
+    cd /Software/piPipes
     ln -s $PWD/piPipes /usr/local/bin/piPipes
     ln -s $PWD/piPipes_debug /usr/local/bin/piPipes_debug
     
@@ -80,17 +82,14 @@ dpkg-reconfigure locales
 export LANGUAGE="en_US.UTF-8"
 echo 'LANGUAGE="en_US.UTF-8"' >> /etc/default/locale
 echo 'LC_ALL="en_US.UTF-8"' >> /etc/default/locale
+cd /Software
 chmod 777 /tmp
 chmod +t /tmp
 apt-get install -y apt-transport-https build-essential libsm6 libxrender1 libfontconfig1 ruby
-apt-get clean
-mkdir /Software 
-cd /Software
-chmod 777 /Software
 useradd -m singularity
 su -c 'cd /Software && git clone https://github.com/Linuxbrew/brew.git /Software/brew' singularity
 su -c '/Software/brew/bin/brew install gawk' singularity
-ln -s /Software/brew/bin/gawk /tmp/piPipes/bin/awk
+ln -s /Software/brew/bin/gawk /Software/piPipes/bin/awk
     
     
     
