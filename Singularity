@@ -35,10 +35,12 @@ From: shub://onuryukselen/singularity
 #### 1. R
   NPROCS=`awk '/^processor/ {s+=1}; END{print s}' /proc/cpuinfo`
   cd /tmp
+  wget http://security.ubuntu.com/ubuntu/pool/main/i/icu/libicu52_52.1-3ubuntu0.8_amd64.deb
+  dpkg -i libicu52_52.1-3ubuntu0.8_amd64.deb
   wget https://cran.rstudio.com/src/base/R-3/R-3.4.3.tar.gz
   tar xvf R-3.4.3.tar.gz
   cd /tmp/R-3.4.3
-  apt-get install -y libblas3 libblas-dev liblapack-dev liblapack3 ghostscript  
+  apt-get install -y libblas3 libblas-dev liblapack-dev liblapack3 ghostscript  libicu52
   apt-get install -y libgmp10 libgmp-dev
   apt-get install -y fort77 aptitude
   aptitude install -y xorg-dev
