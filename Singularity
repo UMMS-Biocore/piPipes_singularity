@@ -51,6 +51,7 @@ From: shub://onuryukselen/singularity
   make -j${NPROCS}
   make install
 
+  echo install.packages\(\"stringi\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org\'\, Ncpus\=${NPROCS}\) | R --slave
   echo install.packages\(\"RColorBrewer\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org\'\, Ncpus\=${NPROCS}\) | R --slave
   echo install.packages\(\"ggplot2\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org\'\, Ncpus\=${NPROCS}\) | R --slave
   echo install.packages\(\"grid\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org\'\, Ncpus\=${NPROCS}\) | R --slave
