@@ -34,7 +34,7 @@ From: shub://onuryukselen/singularity
     
 #### 1. R
   NPROCS=`awk '/^processor/ {s+=1}; END{print s}' /proc/cpuinfo`
-  cd /tmp
+  cd /tmp 
   wget http://security.ubuntu.com/ubuntu/pool/main/i/icu/libicu52_52.1-3ubuntu0.8_amd64.deb
   dpkg -i libicu52_52.1-3ubuntu0.8_amd64.deb
   wget https://cran.rstudio.com/src/base/R-3/R-3.4.3.tar.gz
