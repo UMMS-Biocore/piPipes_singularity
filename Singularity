@@ -51,19 +51,19 @@ From: shub://onuryukselen/singularity
   make -j${NPROCS}
   make install
 
-  echo install.packages\(\"RColorBrewer\"\, repos\=\'https://cloud.r-project.org\'\, Ncpus\=${NPROCS}\) | R --slave
-  echo install.packages\(\"ggplot2\"\, repos\=\'https://cloud.r-project.org\'\, Ncpus\=${NPROCS}\) | R --slave
-  echo install.packages\(\"grid\"\, repos\=\'https://cloud.r-project.org\'\, Ncpus\=${NPROCS}\) | R --slave
-  echo install.packages\(\"ggthemes\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
-  echo install.packages\(\"gplots\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
-  echo install.packages\(\"parallel\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
-  echo install.packages\(\"scales\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
-  echo install.packages\(\"reshape\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
-  echo install.packages\(\"gridExtra\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
-  echo install.packages\(\"gdata\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
-  echo install.packages\(\"labeling\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
-  echo install.packages\(\"RCircos\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
-  echo install.packages\(\"reshape2\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"RColorBrewer\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"ggplot2\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"grid\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"ggthemes\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"gplots\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"parallel\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"scales\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"reshape\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"gridExtra\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"gdata\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"labeling\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"RCircos\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"reshape2\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
   yes | apt-get install libmariadb-client-lgpl-dev
   R --slave -e "source('https://bioconductor.org/biocLite.R'); biocLite()"
   R --slave -e "source('https://bioconductor.org/biocLite.R'); biocLite('cummeRbund')"
