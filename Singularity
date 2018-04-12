@@ -38,7 +38,7 @@ From: shub://onuryukselen/singularity
   wget https://cran.rstudio.com/src/base/R-3/R-3.4.3.tar.gz
   tar xvf R-3.4.3.tar.gz
   cd /tmp/R-3.4.3
-  apt-get install -y libblas3 libblas-dev liblapack-dev liblapack3  
+  apt-get install -y libblas3 libblas-dev liblapack-dev liblapack3 ghostscript  
   apt-get install -y libgmp10 libgmp-dev
   apt-get install -y fort77 aptitude
   aptitude install -y xorg-dev
@@ -99,10 +99,22 @@ su -c 'cd /Software && git clone https://github.com/Linuxbrew/brew.git /Software
 su -c '/Software/brew/bin/brew install gawk' singularity
 ln -s /Software/brew/bin/gawk /Software/piPipes/bin/awk
     
-    
-    
-    
-    
-    
+#6. NCBI SRA and cutadapt
+cd /Software
+wget https://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/2.9.0/sratoolkit.2.9.0-ubuntu64.tar.gz
+tar xvf sratoolkit.2.9.0-ubuntu64.tar.gz
+pip install cutadapt
+
+
+
+
+
+
+
+
+
+
+
+
     
     
