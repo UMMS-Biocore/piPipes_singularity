@@ -68,6 +68,7 @@ From: shub://onuryukselen/singularity
   echo install.packages\(\"RCircos\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
   echo install.packages\(\"reshape2\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
   yes | apt-get install libmariadb-client-lgpl-dev
+  pip install fastcluster
   R --slave -e "source('https://bioconductor.org/biocLite.R'); biocLite()"
   R --slave -e "source('https://bioconductor.org/biocLite.R'); biocLite('cummeRbund')"
   
