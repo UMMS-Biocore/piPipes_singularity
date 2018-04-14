@@ -30,11 +30,24 @@ From: shub://onuryukselen/singularity
     ## copy startup script
     git clone https://github.com/onuryukselen/piPipes_singularity 
     cp piPipes_singularity/files/startup /usr/local/bin/dolphin-bin/.
+    chmod 777 /usr/local/bin/dolphin-bin/startup
     ## copy piPipes
     git clone https://github.com/bowhan/piPipes.git /Software/piPipes
     cd /Software/piPipes
     ln -s $PWD/piPipes /usr/local/bin/piPipes
     ln -s $PWD/piPipes_debug /usr/local/bin/piPipes_debug
+    
+#################
+###  Genome data
+#################
+    mkdir -p /Software/piPipes/common/hg19/rmsk
+    cd /Software/piPipes/common/hg19/rmsk
+    wget --timestamping 'ftp://hgdownload.cse.ucsc.edu/goldenPath/hg19/database/rmsk.txt.gz' -O rmsk.txt.gz
+    ## comment out related download scripts from the piPipes/bin/piPipes_install_genomes.sh
+    sed -i 's/rsync -a -P/#rsync -a -P/g' /Software/piPipes/bin/piPipes_install_genomes.sh
+    mkdir -p /Software/piPipes/common/dm3
+    wget  ftp://hgdownload.cse.ucsc.edu/goldenPath/dm3/chromosomes/chrU.fa.gz
+    
     
 #### 1. R
   NPROCS=`awk '/^processor/ {s+=1}; END{print s}' /proc/cpuinfo`
@@ -77,9 +90,6 @@ From: shub://onuryukselen/singularity
   R --slave -e "source('https://bioconductor.org/biocLite.R'); biocLite()"
   R --slave -e "source('https://bioconductor.org/biocLite.R'); biocLite('cummeRbund')"
   
-  
-  
-
 # 2. HTSeq-count
 pip install HTSeq
 which htseq-count
