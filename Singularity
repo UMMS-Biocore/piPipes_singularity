@@ -7,7 +7,7 @@ From: shub://onuryukselen/singularity
     Version v1.0
 
 %environment
-    PATH=$PATH:/Software/piPipes/bin:/Software/brew/bin
+    PATH=$PATH:/Software/piPipes/bin:/Software/brew/bin:/Software/sratoolkit.2.9.0-ubuntu64/bin
     export PATH
 
 %apprun R
@@ -28,7 +28,7 @@ From: shub://onuryukselen/singularity
     cd /Software
     chmod 777 /Software
     git clone https://github.com/bowhan/piPipes.git /Software/piPipes
-    git clone https://github.com/onuryukselen/singularity/startup /usr/local/bin/dolphin-bin/startup
+    git clone https://github.com/onuryukselen/singularity/files/startup /usr/local/bin/dolphin-bin/startup
     cd /Software/piPipes
     ln -s $PWD/piPipes /usr/local/bin/piPipes
     ln -s $PWD/piPipes_debug /usr/local/bin/piPipes_debug
