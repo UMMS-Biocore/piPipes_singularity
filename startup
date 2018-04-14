@@ -1,0 +1,4 @@
+wdir=$1
+genome_name=$2
+rsync -vazu /Software/piPipes $wdir/.
+$wdir/piPipes/piPipes_debug install -g ${genome_name}
