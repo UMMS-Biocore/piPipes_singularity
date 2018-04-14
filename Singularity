@@ -53,6 +53,8 @@ From: shub://onuryukselen/singularity
   make -j${NPROCS}
   make install
 
+  pip install fastcluster
+  echo install.packages\(\"fastcluster\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org\'\, Ncpus\=${NPROCS}\) | R --slave
   echo install.packages\(\"stringi\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org\'\, Ncpus\=${NPROCS}\) | R --slave
   echo install.packages\(\"RColorBrewer\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org\'\, Ncpus\=${NPROCS}\) | R --slave
   echo install.packages\(\"ggplot2\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org\'\, Ncpus\=${NPROCS}\) | R --slave
@@ -68,7 +70,6 @@ From: shub://onuryukselen/singularity
   echo install.packages\(\"RCircos\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
   echo install.packages\(\"reshape2\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
   yes | apt-get install libmariadb-client-lgpl-dev
-  pip install fastcluster
   R --slave -e "source('https://bioconductor.org/biocLite.R'); biocLite()"
   R --slave -e "source('https://bioconductor.org/biocLite.R'); biocLite('cummeRbund')"
   
