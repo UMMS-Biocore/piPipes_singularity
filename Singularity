@@ -27,8 +27,11 @@ From: shub://onuryukselen/singularity
     mkdir -p /Software 
     cd /Software
     chmod 777 /Software
+    ## copy startup script
+    git clone https://github.com/onuryukselen/piPipes_singularity 
+    cp piPipes_singularity/files/startup /usr/local/bin/dolphin-bin/.
+    ## copy piPipes
     git clone https://github.com/bowhan/piPipes.git /Software/piPipes
-    git clone https://github.com/onuryukselen/singularity/files/startup /usr/local/bin/dolphin-bin/startup
     cd /Software/piPipes
     ln -s $PWD/piPipes /usr/local/bin/piPipes
     ln -s $PWD/piPipes_debug /usr/local/bin/piPipes_debug
