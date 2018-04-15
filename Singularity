@@ -48,7 +48,7 @@ From: shub://onuryukselen/singularity
     ## comment out related download scripts from the piPipes/bin/piPipes_install_genomes.sh
     sed -i 's/rsync -a -P/#rsync -a -P/g' /Software/piPipes/bin/piPipes_install_genomes.sh
     mkdir -p /Software/piPipes/common/dm3
-    rsync -vazu  /Software/piPipes_singularity/genome_data/chrU.fa.gz /Software/piPipes/common/dm3/.
+    rsync -vazu  /Software/piPipes_singularity/genome_data/chrU.fa.gz /Software/piPipes/common/dm3/. 
 #    wget  ftp://hgdownload.cse.ucsc.edu/goldenPath/dm3/chromosomes/chrU.fa.gz
     
 #### 1. R
