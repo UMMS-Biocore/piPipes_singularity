@@ -41,12 +41,15 @@ From: shub://onuryukselen/singularity
 ###  Genome data
 #################
     mkdir -p /Software/piPipes/common/hg19/rmsk
-    cd /Software/piPipes/common/hg19/rmsk
-    wget --timestamping 'ftp://hgdownload.cse.ucsc.edu/goldenPath/hg19/database/rmsk.txt.gz' -O rmsk.txt.gz
+    cd /Software/piPipes_singularity/genome_data
+    cat rmsk.txt.gz* > rmsk.txt.gz
+    rsync -vazu  /Software/piPipes_singularity/genome_data/rmsk.txt.gz  /Software/piPipes/common/hg19/rmsk/.
+#    wget --timestamping 'ftp://hgdownload.cse.ucsc.edu/goldenPath/hg19/database/rmsk.txt.gz' -O rmsk.txt.gz
     ## comment out related download scripts from the piPipes/bin/piPipes_install_genomes.sh
     sed -i 's/rsync -a -P/#rsync -a -P/g' /Software/piPipes/bin/piPipes_install_genomes.sh
     mkdir -p /Software/piPipes/common/dm3
-    wget  ftp://hgdownload.cse.ucsc.edu/goldenPath/dm3/chromosomes/chrU.fa.gz
+    rsync -vazu  /Software/piPipes_singularity/genome_data/chrU.fa.gz /Software/piPipes/common/dm3/.
+#    wget  ftp://hgdownload.cse.ucsc.edu/goldenPath/dm3/chromosomes/chrU.fa.gz
     
 #### 1. R
   NPROCS=`awk '/^processor/ {s+=1}; END{print s}' /proc/cpuinfo`
