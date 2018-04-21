@@ -61,7 +61,8 @@ From: shub://onuryukselen/singularity
   cd /tmp/R-3.4.3
   apt-get install -y libblas3 libblas-dev liblapack-dev liblapack3 ghostscript  libicu52
   apt-get install -y libgmp10 libgmp-dev
-  apt-get install -y fort77 aptitude
+  apt-get update
+  apt-get install -y fort77 aptitude bioperl
   aptitude install -y xorg-dev
   aptitude install -y libreadline-dev
   apt install -y   libpcre3-dev liblzma-dev  

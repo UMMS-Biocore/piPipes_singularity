@@ -47,4 +47,75 @@
 #	-O $HOME/extra_fasta/gfp.fa,$HOME/extra_fasta/luciferase.fa \
 #	1> Zamore.SRA.ago3_het.ox.ovary.piPipes.stdout \
 #	2> Zamore.SRA.ago3_het.ox.ovary.piPipes.stderr
+
+
+How many mismatches should be allowed for rRNA mapping by bowtie?
+export rRNA_MM=y
+How many mismatches should be allowed for microRNA hairping mapping by bowtie?
+export hairpin_MM=y
+How many mismatches should be allowed for genome mapping by bowtie?
+export genome_MM=y
+How many mismatches should be allowed for trasnposons/piRNAcluster mapping by bowtie?
+export transposon_MM=y
+What is the shortest length for siRNA?
+export siRNA_bot=y
+What is the longest length for siRNA?
+export siRNA_top=y
+What is the shortest length for piRNA?
+export piRNA_bot=y
+What is the longest length for piRNA?
+export piRNA_top=y
     
+    
+printf "export rRNA_MM=${rRNA_MM}\nexport hairpin_MM=${hairpin_MM}\nexport genome_MM=${genome_MM}\nexport transposon_MM=${transposon_MM}\nexport siRNA_bot=${siRNA_bot}\nexport siRNA_top=${siRNA_top}\nexport piRNA_bot=${piRNA_bot}\nexport piRNA_top=${piRNA_top}\n"  >${wdir}/piPipes/common/${genome_name}/variables
+
+
+
++ ln -s Mus_musculus/UCSC/mm9/Sequence/WholeGenomeFasta/genome.fa.fai mm9.fa.fai
+ln: failed to create symbolic link ‘mm9.fa.fai’: File exists
++ '[' -s Mus_musculus/UCSC/mm9/Annotation/Genes/ChromInfo.txt ']'
++ faSize -tab -detailed mm9.fa
+
+
+
+if [ -s $IGENOME_DIR_NAME/UCSC/$GENOME/Sequence/WholeGenomeFasta/genome.fa.fai ]; then
+		ln -s $IGENOME_DIR_NAME/UCSC/$GENOME/Sequence/WholeGenomeFasta/genome.fa.fai ${GENOME}.fa.fai
+	else
+		samtools faidx ${GENOME}.fa
+	fi
+
+	if [ -s $IGENOME_DIR_NAME/UCSC/$GENOME/Annotation/Genes/ChromInfo.txt ]; then
+		ln -s $IGENOME_DIR_NAME/UCSC/$GENOME/Annotation/Genes/ChromInfo.txt ${GENOME}.ChromInfo.txt
+	else
+		faSize -tab -detailed ${GENOME}.fa > ${GENOME}.ChromInfo.txt
+	fi
+
+
+[2018-04-18 03:59:47 UTC] Building STAR index for genome
++ '[' '!' -s STARIndex/SAindex ']'
++ STAR --runMode genomeGenerate --runThreadN 8 --genomeDir STARIndex --genomeFastaFiles mm9.fa --sjdbGTFfile mm9.genes.gtf --sjdbOverhang 99
+Apr 18 03:59:47 ..... started STAR run
+Apr 18 03:59:47 ... starting to generate Genome files
+
+
+
+____
+genome.seq
++ perl /share/garberlab/yukseleo/nextflowruns/piPipes_nextflow/piPipes/bin/pickUniqPairFastq.pl Theurkauf.GSQ.w1xHar.21day.bwa-aln.unpair.sam Theurkauf.GSQ.w1xHar.21day.bwa-aln.unpair.uniq
+Can't locate Bio/Seq.pm in @INC (you may need to install the Bio::Seq module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.22.1 /usr/local/share/perl/5.22.1 /usr/lib/x86_64-linux-gnu/perl5/5.22 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl/5.22 /usr/share/perl/5.22 /usr/local/lib/site_perl /usr/lib/x86_64-linux-gnu/perl-base .) at /share/garberlab/yukseleo/nextflowruns/piPipes_nextflow/piPipes/bin/pickUniqPairFastq.pl line 2.
+BEGIN failed--compilation aborted at /share/garberlab/yukseleo/nextflowruns/piPipes_nextflow/piPipes/bin/pickUniqPairFastq.pl line 2.
++ perl /share/garberlab/yukseleo/nextflowruns/piPipes_nextflow/piPipes/bin/pickUniqPos.pl Theurkauf.GSQ.w1xHar.21day.bwa-aln.unpair.sam
+Can't locate Bio/Seq.pm in @INC (you may need to install the Bio::Seq module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.22.1 /usr/local/share/perl/5.22.1 /usr/lib/x86_64-linux-gnu/perl5/5.22 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl/5.22 /usr/share/perl/5.22 /usr/local/lib/site_perl /usr/lib/x86_64-linux-gnu/perl-base .) at /share/garberlab/yukseleo/nextflowruns/piPipes_nextflow/piPipes/bin/pickUniqPos.pl line 2.
+BEGIN failed--compilation aborted at /share/garberlab/yukseleo/nextflowruns/piPipes_nextflow/piPipes/bin/pickUniqPos.pl line 2.
+
+++++
+Loading required package: RCircos
+
+RCircos.Core.Components initialized.
+Type ?RCircos.Reset.Plot.Parameters to see how to modify the core components.
+
+
+Error in RCircos.Validate.Genomic.Data(genomic.data, "plot", genomic.columns) :
+  Some chromosomes in plot data is not in ideogram.
+Calls: RCircos.Gene.Connector.Plot ... RCircos.Get.Single.Point.Positions -> RCircos.Validate.Genomic.Data
+Execution halted
