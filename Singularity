@@ -68,6 +68,7 @@ From: shub://onuryukselen/singularity
   apt-get update
   apt-get install -y bioperl
   apt-get update
+  
 
   ./configure --enable-R-static-lib --with-blas --with-lapack --enable-R-shlib=yes 
   echo "Will use make with $NPROCS cores."
