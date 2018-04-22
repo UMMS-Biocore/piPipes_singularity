@@ -32,7 +32,7 @@ From: shub://onuryukselen/singularity
     cp piPipes_singularity/files/startup /usr/local/bin/dolphin-bin/.
     chmod 777 /usr/local/bin/dolphin-bin/startup
     ## copy piPipes
-    git clone https://github.com/bowhan/piPipes.git /Software/piPipes
+    git clone https://github.com/onuryukselen/piPipes.git /Software/piPipes
     cd /Software/piPipes
     ln -s $PWD/piPipes /usr/local/bin/piPipes
     ln -s $PWD/piPipes_debug /usr/local/bin/piPipes_debug
@@ -61,13 +61,13 @@ From: shub://onuryukselen/singularity
   cd /tmp/R-3.4.3
   apt-get install -y libblas3 libblas-dev liblapack-dev liblapack3 ghostscript  libicu52
   apt-get install -y libgmp10 libgmp-dev
-  apt-get update
-  apt-get install -y fort77 aptitude bioperl
+  apt-get install -y fort77 aptitude
   aptitude install -y xorg-dev
   aptitude install -y libreadline-dev
   apt install -y   libpcre3-dev liblzma-dev  
   apt-get update
-
+  apt-get install -y bioperl
+  apt-get update
 
   ./configure --enable-R-static-lib --with-blas --with-lapack --enable-R-shlib=yes 
   echo "Will use make with $NPROCS cores."
