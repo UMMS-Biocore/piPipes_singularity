@@ -68,6 +68,7 @@ From: shub://onuryukselen/singularity
   apt install -y   libpcre3-dev liblzma-dev  
   apt-get update
 
+
   ./configure --enable-R-static-lib --with-blas --with-lapack --enable-R-shlib=yes 
   echo "Will use make with $NPROCS cores."
   make -j${NPROCS}
