@@ -67,7 +67,7 @@ From: shub://onuryukselen/singularity
   apt install -y   libpcre3-dev liblzma-dev  
   apt-get update
   apt-get install -y bioperl
-  apt-get update
+  apt-get update 
   
 
   ./configure --enable-R-static-lib --with-blas --with-lapack --enable-R-shlib=yes 
