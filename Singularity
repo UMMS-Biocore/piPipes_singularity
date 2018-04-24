@@ -66,8 +66,8 @@ From: shub://onuryukselen/singularity
   aptitude install -y libreadline-dev
   apt install -y   libpcre3-dev liblzma-dev  
   apt-get update
-#  apt-get install -y bioperl
-#  apt-get update
+  apt-get install -y bioperl
+  apt-get update
   
 
   ./configure --enable-R-static-lib --with-blas --with-lapack --enable-R-shlib=yes 
