@@ -73,39 +73,39 @@ From: shub://onuryukselen/singularity
   echo "Will use make with $NPROCS cores."
   make -j${NPROCS}
   make install
-#
-#  pip install fastcluster
-#  echo install.packages\(\"fastcluster\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org\'\, Ncpus\=${NPROCS}\) | R --slave
-#  echo install.packages\(\"stringi\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org\'\, Ncpus\=${NPROCS}\) | R --slave
-#  echo install.packages\(\"RColorBrewer\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org\'\, Ncpus\=${NPROCS}\) | R --slave
-#  echo install.packages\(\"ggplot2\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org\'\, Ncpus\=${NPROCS}\) | R --slave
-#  echo install.packages\(\"grid\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org\'\, Ncpus\=${NPROCS}\) | R --slave
-#  echo install.packages\(\"ggthemes\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
-#  echo install.packages\(\"gplots\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
-#  echo install.packages\(\"parallel\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
-#  echo install.packages\(\"scales\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
-#  echo install.packages\(\"reshape\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
-#  echo install.packages\(\"gridExtra\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
-#  echo install.packages\(\"gdata\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
-#  echo install.packages\(\"labeling\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
-#  echo install.packages\(\"RCircos\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
-#  echo install.packages\(\"reshape2\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
-#  yes | apt-get install libmariadb-client-lgpl-dev
-#  R --slave -e "source('https://bioconductor.org/biocLite.R'); biocLite()"
-#  R --slave -e "source('https://bioconductor.org/biocLite.R'); biocLite('cummeRbund')"
-#  
-## 2. HTSeq-count
-#pip install HTSeq
-#which htseq-count
-#
-## 3. MACS2
-#pip install macs2
-#which macs2
-#
-## 4. Perl Module Statistics::Descriptive;
-#cpan Statistics::Descriptive
-#perl -MStatistics::Descriptive -e "print \"Installed.\\n\";"
-#
+
+  pip install fastcluster
+  echo install.packages\(\"fastcluster\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"stringi\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"RColorBrewer\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"ggplot2\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"grid\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"ggthemes\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"gplots\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"parallel\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"scales\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"reshape\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"gridExtra\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"gdata\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"labeling\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"RCircos\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"reshape2\"\, dependencies = TRUE, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
+  yes | apt-get install libmariadb-client-lgpl-dev
+  R --slave -e "source('https://bioconductor.org/biocLite.R'); biocLite()"
+  R --slave -e "source('https://bioconductor.org/biocLite.R'); biocLite('cummeRbund')"
+  
+# 2. HTSeq-count
+pip install HTSeq
+which htseq-count
+
+# 3. MACS2
+pip install macs2
+which macs2
+
+# 4. Perl Module Statistics::Descriptive;
+cpan Statistics::Descriptive
+perl -MStatistics::Descriptive -e "print \"Installed.\\n\";"
+
 ## 5. Install Gawk with Linuxbrew  
 #locale-gen "en_US.UTF-8"
 #dpkg-reconfigure locales
