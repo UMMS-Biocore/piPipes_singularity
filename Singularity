@@ -102,7 +102,6 @@ which htseq-count
 pip install macs2
 which macs2
 
-
 # 4. Perl Module Statistics::Descriptive;
 #cpan Statistics::Descriptive
 #perl -MStatistics::Descriptive -e "print \"Installed.\\n\";"
