@@ -66,10 +66,9 @@ From: shub://onuryukselen/singularity
   aptitude install -y libreadline-dev
   apt install -y   libpcre3-dev liblzma-dev  
   apt-get update
-#  apt-get install -y bioperl
-#  apt-get update
+  apt-get install -y bioperl
+  apt-get update 
   
-
   ./configure --enable-R-static-lib --with-blas --with-lapack --enable-R-shlib=yes 
   echo "Will use make with $NPROCS cores."
   make -j${NPROCS}
@@ -104,7 +103,7 @@ pip install macs2
 which macs2
 
 # 4. Perl Module Statistics::Descriptive;
-cpan Statistics::Descriptive
+yes | cpan Statistics::Descriptive
 perl -MStatistics::Descriptive -e "print \"Installed.\\n\";"
 
 # 5. Install Gawk with Linuxbrew  
