@@ -115,12 +115,12 @@ echo 'LC_ALL="en_US.UTF-8"' >> /etc/default/locale
 cd /Software
 chmod 777 /tmp
 chmod +t /tmp
-#apt-get install -y apt-transport-https build-essential libsm6 libxrender1 libfontconfig1 ruby
-#useradd -m singularity
-#su -c 'cd /Software && git clone https://github.com/Linuxbrew/brew.git /Software/brew' singularity
-#su -c '/Software/brew/bin/brew install gawk' singularity
-#ln -s /Software/brew/bin/gawk /Software/piPipes/bin/awk
-#    
+apt-get install -y apt-transport-https build-essential libsm6 libxrender1 libfontconfig1 ruby
+useradd -m singularity
+su -c 'cd /Software && git clone https://github.com/Linuxbrew/brew.git /Software/brew' singularity
+su -c '/Software/brew/bin/brew install gawk' singularity
+ln -s /Software/brew/bin/gawk /Software/piPipes/bin/awk
+    
 ##6. NCBI SRA and cutadapt
 #cd /Software
 #wget https://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/2.9.0/sratoolkit.2.9.0-ubuntu64.tar.gz
