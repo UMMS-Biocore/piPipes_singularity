@@ -124,8 +124,7 @@ ln -s /Software/brew/bin/gawk /Software/piPipes/bin/awk
     
 ##6. NCBI SRA and cutadapt
 cd /Software
-cp piPipes_singularity/files/sratoolkit.2.9.0-ubuntu64.tar.gz /Software/.
-#wget https://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/2.9.0/sratoolkit.2.9.0-ubuntu64.tar.gz
+curl -O https://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/2.9.0/sratoolkit.2.9.0-ubuntu64.tar.gz
 tar xvf sratoolkit.2.9.0-ubuntu64.tar.gz
 pip install cutadapt
 
