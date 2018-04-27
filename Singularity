@@ -122,7 +122,7 @@ su -c 'cd /Software && git clone https://github.com/Linuxbrew/brew.git /Software
 su -c '/Software/brew/bin/brew install gawk' singularity
 ln -s /Software/brew/bin/gawk /Software/piPipes/bin/awk
     
-##6. NCBI SRA and cutadapt
+##6. NCBI SRA and cutadapt 
 cd /Software
 curl -O https://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/2.9.0/sratoolkit.2.9.0-ubuntu64.tar.gz
 tar xvf sratoolkit.2.9.0-ubuntu64.tar.gz
