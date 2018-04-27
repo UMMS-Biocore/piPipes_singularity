@@ -30,6 +30,7 @@ From: shub://onuryukselen/singularity
     ## copy startup script
     git clone https://github.com/onuryukselen/piPipes_singularity 
     cp piPipes_singularity/files/startup /usr/local/bin/dolphin-bin/.
+
     chmod 777 /usr/local/bin/dolphin-bin/startup
     ## copy piPipes
     git clone https://github.com/onuryukselen/piPipes.git /Software/piPipes
@@ -123,9 +124,10 @@ ln -s /Software/brew/bin/gawk /Software/piPipes/bin/awk
     
 ##6. NCBI SRA and cutadapt
 cd /Software
-wget https://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/2.9.0/sratoolkit.2.9.0-ubuntu64.tar.gz
+cp piPipes_singularity/files/sratoolkit.2.9.0-ubuntu64.tar.gz /Software/.
+#wget https://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/2.9.0/sratoolkit.2.9.0-ubuntu64.tar.gz
 tar xvf sratoolkit.2.9.0-ubuntu64.tar.gz
-#pip install cutadapt
+pip install cutadapt
 
 
 
