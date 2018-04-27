@@ -1,0 +1,8 @@
+export rRNA_MM=1
+export hairpin_MM=1
+export genome_MM=1
+export transposon_MM=1
+export siRNA_bot=20
+export siRNA_top=22
+export piRNA_bot=23
+export piRNA_top=29

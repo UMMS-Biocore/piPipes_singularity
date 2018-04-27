@@ -29,9 +29,8 @@ From: shub://onuryukselen/singularity
     chmod 777 /Software
     ## copy startup script
     git clone https://github.com/onuryukselen/piPipes_singularity 
-    cp piPipes_singularity/files/startup /usr/local/bin/dolphin-bin/.
-
-    chmod 777 /usr/local/bin/dolphin-bin/startup
+#    cp /Software/piPipes_singularity/files/startup /usr/local/bin/dolphin-bin/.
+#    chmod 777 /usr/local/bin/dolphin-bin/startup
     ## copy piPipes
     git clone https://github.com/onuryukselen/piPipes.git /Software/piPipes
     cd /Software/piPipes
