@@ -43,7 +43,7 @@ From: shub://onuryukselen/singularity
     cat rmsk.txt.gz* > rmsk.txt.gz
     rsync -vazu  /Software/piPipes_singularity/genome_data/rmsk.txt.gz  /Software/piPipes/common/hg19/rmsk/.
 #    wget --timestamping 'ftp://hgdownload.cse.ucsc.edu/goldenPath/hg19/database/rmsk.txt.gz' -O rmsk.txt.gz
-    ## comment out related download scripts from the piPipes/bin/piPipes_install_genomes.sh
+    ## commented out related download scripts from the piPipes/bin/piPipes_install_genomes.sh
     sed -i 's/rsync -a -P/#rsync -a -P/g' /Software/piPipes/bin/piPipes_install_genomes.sh
     mkdir -p /Software/piPipes/common/dm3
     rsync -vazu  /Software/piPipes_singularity/genome_data/chrU.fa.gz /Software/piPipes/common/dm3/. 
