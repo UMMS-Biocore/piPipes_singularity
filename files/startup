@@ -1,5 +1,0 @@
-wdir=$1
-genome_name=$2
-mkdir -p  $wdir
-rsync -vazu --ignore-existing /Software/piPipes $wdir/.
-yes | $wdir/piPipes/piPipes_debug install -g ${genome_name} 1> download.log 2> download.debug &
