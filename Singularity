@@ -27,11 +27,9 @@ From: shub://onuryukselen/singularity
     mkdir -p /Software 
     cd /Software
     chmod 777 /Software
-    ## copy startup script
+    ## clone piPipes_singularity
     git clone https://github.com/onuryukselen/piPipes_singularity 
-#    cp /Software/piPipes_singularity/files/startup /usr/local/bin/dolphin-bin/.
-#    chmod 777 /usr/local/bin/dolphin-bin/startup
-    ## copy piPipes
+    ## copy forked piPipes
     git clone https://github.com/onuryukselen/piPipes.git /Software/piPipes
     cd /Software/piPipes
     ln -s $PWD/piPipes /usr/local/bin/piPipes
@@ -126,16 +124,6 @@ cd /Software
 curl -O https://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/2.9.0/sratoolkit.2.9.0-ubuntu64.tar.gz
 tar xvf sratoolkit.2.9.0-ubuntu64.tar.gz
 pip install cutadapt
-
-
-
-
-
-
-
-
-
-
 
 
     
