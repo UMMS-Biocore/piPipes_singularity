@@ -57,6 +57,7 @@ From: shub://onuryukselen/singularity
   wget https://cran.rstudio.com/src/base/R-3/R-3.4.3.tar.gz
   tar xvf R-3.4.3.tar.gz
   cd /tmp/R-3.4.3
+  apt-get update
   apt-get install -y libblas3 libblas-dev liblapack-dev liblapack3 ghostscript  libicu52
   apt-get install -y libgmp10 libgmp-dev
   apt-get install -y fort77 aptitude
