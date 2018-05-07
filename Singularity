@@ -48,7 +48,7 @@ From: shub://onuryukselen/singularity
     mkdir -p /Software/piPipes/common/dm3
     rsync -vazu  /Software/piPipes_singularity/genome_data/chrU.fa.gz /Software/piPipes/common/dm3/. 
 #    wget  ftp://hgdownload.cse.ucsc.edu/goldenPath/dm3/chromosomes/chrU.fa.gz
-    
+     
 #### 1. R
   NPROCS=`awk '/^processor/ {s+=1}; END{print s}' /proc/cpuinfo`
   cd /tmp 
