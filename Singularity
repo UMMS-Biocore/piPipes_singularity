@@ -126,6 +126,7 @@ cd /Software
 #tar xvf sratoolkit.2.9.0-ubuntu64.tar.gz
 pip install cutadapt
 
-
+##7. RSeQC
+pip install RSeQC
     
     
